@@ -1,15 +1,138 @@
-### Method
+# OOD基础
+- access modifier
+  - protected: 开放给 我自己 + 子类
+  - public: 开放给 所有人
+  - private: 开放给 我自己
+  - override: 重写父类函数
+  - overlode: input args不同 重载
+- 封装 encapsulation
+    ```java
+    class Animal {}
+    Animal a = new Animal();
+    class Dog extned
+    ```
+- 继承 inheritence
+    ```java
+    class Dog extends Animal {}
+    ```
+    protected, public可以继承， 可以override或者overload
 
-- Clarify 
-	- what
-	- how
-	-  Who
-		- 思考是否
+- 多态 polymorphism
+    ```Java
+    abstract class Animal{
+        public abstract void makeSound();
+    }
+    final class Dog extends Animal{
+        public void makeSound(){
+            System.out.println('Woof!')
+        }
+    }
+    final class Cat extends Animal{
+        public void makeSound(){
+            System.out.println('Meeow!')
+        }
+    }
+    Animal animal1 = new Dog();
+    Animal animal2 = new Cat();
+    <!-- 会有不同的表现 -->
+    animal1.makeSound();
+    animal2.makeSound();
+    ```
+- Example: 
+    ```java
+    class Animal {
+        public void description(){
+            System.out.println("A general Animal Object")
+        }
+        protected String name; // 子类可以继承
+        private String privacy; //只能自己用
+        public int id; //所有都有access
+    }
+
+    Animal a = new Animal();
+    class Dog extends Animal {}; //继承
+    Dog dog = new Dog();
+    dog.description();
+
+    class Cat extends Animal {
+        //overide
+        public void description(){
+            System.out.println("A cat Object")
+        }
+    }
+
+    class Bear extends Animcal {
+        public void description(){
+            super(); // call the base class's description
+        }
+    }
+    ```
+
+    ```java
+    abstract class Animal{}
+    class Dog extends Animal{}
+    Animal animal = new Animal(); //this is wrong
+    Dog dog = new Dog(); // this correct
+    ```
+
+    Interface 像是方法的集合，没有constructor
+    ```Java
+    interface Service{
+        // No constructor
+        public void serve();
+        public void retire();
+    }
+
+    class Dog implements Service{
+        public void serve()
+        pbulic void retire()
+    }
+    ```
+
+- Exception
+  - Checked Exception(10 Exception, compile time exception)
+  - Unchecked Exception(Runtime Exception, NPE)
+  ```Java
+  class MyException extends Exception{ //继承系统的exception
+      public MyExcpetion(String s){
+          super(s);
+      }
+  }
+
+  public class Testing{
+      public void test(){
+          try{
+              throw new MyException("My exception");
+          }
+          catch (MyException ex){
+              System.out.println(ex.getMessage());
+          }
+      }
+  }
+  ```
+
+- Enum
+  
+  ```Java
+  public enum TrafficSignal{
+      RED, YELLOW, GREEN
+  }
+  public class Testing{
+      TrafficSignal signal = new TrafficSignal.RED;
+  }
+  ```
+
+# 分析方法
+
+- Clarify
+  - What
+  - How
+  - Who
 - Core Object
-    - Package:  如果什么都不声明， 变量和函数都是package level visible的，在同一个package内的其他类
-    - Public: 如果声明是public，变量和函数都是public level visible的， 任何其他的类都可以访问（+）
-    - Private: 如果声明是private，变量和函数都是class level visible的，仅有定义这些变量和函数的类自己可以访问（封装）
-    - Protected: 如果声明是protected，变量和函数在能被定义他们的类访问的基础上，还能被该类的子类所访问（继承）（#）
+  - Package:  如果什么都不声明， 变量和函数都是package level visible的，在同一个package内的其他类
+  - Public: 如果声明是public，变量和函数都是public level visible的， 任何其他的类都可以访问（+）
+  - Private: 如果声明是private，变量和函数都是class level visible的，仅有定义这些变量和函数的类自己可以访问（封装）
+  - Protected: 如果声明是protected，变量和函数在能被定义他们的类访问的基础上，还能被该类的子类所访问（继承）（#）
 - Cases
 	- 要实现的功能放在白纸黑字上use cases
 - Class(UML泪图)
@@ -18,7 +141,7 @@
 	- 针对这个描述，在已有的core objects里填充进所需要的信息
 - Correctness
 
-
+# 分析原则 - SOLID
 
 ### Good Practice
 
