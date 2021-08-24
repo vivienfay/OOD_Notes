@@ -124,47 +124,76 @@
 
 # 分析方法
 
-- Clarify
-  - What
-  - How
-  - Who
-- Core Object
+- Clarify: 去除歧义， 确定答题范围
+  - What: 题目关键字，属性，特点，功能
+  - How: 功能
+  - Who: 谁在使用
+- Core Object: 确定题目所涉及的类，以及类之间的映射关系
   - Package:  如果什么都不声明， 变量和函数都是package level visible的，在同一个package内的其他类
   - Public: 如果声明是public，变量和函数都是public level visible的， 任何其他的类都可以访问（+）
   - Private: 如果声明是private，变量和函数都是class level visible的，仅有定义这些变量和函数的类自己可以访问（封装）
   - Protected: 如果声明是protected，变量和函数在能被定义他们的类访问的基础上，还能被该类的子类所访问（继承）（#）
-- Cases
+- Cases: 确定题目中所需要实现的场景和功能
 	- 要实现的功能放在白纸黑字上use cases
-- Class(UML泪图)
+- Class(UML类图): 通过类图的方式，具体填充题目中涉及的类
 	- 遍历你所列出的use cases
 	- 对于每个use case 更加详细描述use case在做什么事情
 	- 针对这个描述，在已有的core objects里填充进所需要的信息
-- Correctness
+- Correctness: 检查自己的设计，是否满足关键点
 
 # 分析原则 - SOLID
 
-### Good Practice
+1. S - Single responsibility principle 单一责任原则
+   
+   一个类应该有且只有一个去改变他的理由，一个类应该只有一项工作
+2. O - Open close principle 开放封闭原则
+
+    对象或实体应该对扩展开放，对修改封闭，open to extension, close to modification
+
+3. L - Liskov subsitution Principle 里氏替换原则
+   
+    任何一个子类或派生类应该可以替换他们的基类或父类
+
+4. I - Interface segregation Principle 接口分离原则
+   
+   不应该强迫一个类实现它用不上的接口
+   
+5. D - Dependency Inbersion Principle 依赖反转原则
+   
+   抽象不应该依赖于具体实现，具体实现应该依赖于抽象
+
+# Good Practice
 
 1. Raise Exception
 
-### Design Pattern
+# Design Pattern
 
 ### 1. Strategy Design Pattern
+- 考虑多种替换
+- 封装 多种算法/策略
+![](img/strategy.png)
 
 - 管理类题目：处理payment
+  
 
 
 ### 2. Singleton
-
+- ensure a calss has only one instance, and provide a global point of access to it
+- 基本式
+  ![](img/singleton1.png)
+- 线程安全式
+  ![](img/singleton2.png)
+- 静态内部类式
+  ![](img/singleton3.png)
 
 ### 3. State Design Pattern
 ### 4. Decor Design Pattern
 
 context -> 
 
-# 类型
+# 题目类型
 
-## 1. 管理类
+### 1. 管理类
 
 - 预定：
 
@@ -183,9 +212,6 @@ context ->
 - 主体
 - 什么是input/output
 
-
-
-
 ### 3. Use Case
 
 从管理员角度出发
@@ -197,7 +223,7 @@ context ->
 
 - 使用收据的形式来保管信息
 
-例子：图书馆。 User/Book/Recipt
+    例子：图书馆。 User/Book/Recipt
 
 
 # 2. 实物类 
@@ -229,44 +255,7 @@ context ->
 
 # Case 1: Elevator
 
-### 1. Clarify:
-
-### 2. Core Object
-
-### 3. Cases:
-1. Handle Request
-2. Take external request
-3. Take internal request
-4. Open Gate
-5. Press Button
-5. Close Gate
-
-### 4. Class:
-
-- External Request
-
-
-- Internal Request
-
-
-- Elevator System
-
-
-- Elevator Button
-    -level
-    -Elevator elevator
-    +InternalRequest prerssButton()
-
-
-
-
-- Elevator System
-
-### 5. Correctness
-    1. Check if use cases validated
-    2. Follow good practice
-    3. S.O.L.I.D
-    4. Design Pattern
+![](img/DesignElevator1.png)
 
 # Case 2: Design Parking Lot
 
