@@ -22,6 +22,7 @@
 ![](img/DesignElevator1.png)
 
 # Design Parking Lot
+![](img/parkinglot.png)
 
 # Design Restaurant Reservation
 
