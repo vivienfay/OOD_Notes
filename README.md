@@ -4,3 +4,8 @@
 ### [Design Pattern](DesignPattern.md)
 ### [Good Practice & Summary](Practice.md)
 ### [题型分类 & Case](OOD_Case.md)
+
+# Case Implementation
+
+### [Elevator System](ElevatorSystem.py)
+### [Parking Lot](ParkingLot.py)

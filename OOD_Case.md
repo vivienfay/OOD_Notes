@@ -3,11 +3,17 @@
   - [Design Parking Lot](#design-elevator)
 
 - 预定类
+  - 解题思路
+    - what：考虑预定的东西，例如机票(机舱/座位号)
+    - Use Case: Search / Select / Cancel  
+      - Search Criteria -> Search() -> Result List -> Select() -> Receipt
+      - 
   - [Restaurant Reservation](#design-restaurant-reservation)
   - [Hotel Reservation](#design-hotel-reservation)
   - [Airline Ticket Reservation](#airline-ticket-reservation)
 
 - 实物类
+  - 考虑对于实物的输入输出
   - [Vending Machine](#vending-machine)
   - [Coffee Makere](#coffee-maker)
   - [Juke Box](#juke-box)
